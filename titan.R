@@ -71,6 +71,7 @@ options(warn = 2, scipen = 999)
 
 
 
+
 # auxiliary function to keep/blacklist observations
 setCode_lonlat<-function(lonlat,code) {
 # lonlat. vector. 1=lon; 2=lat
