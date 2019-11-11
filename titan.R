@@ -5395,7 +5395,9 @@ if (argv$buddy_eve) {
   fg_val<-integer(0)
   fg_prio<-integer(0)
   nfg_val<-0
-  if (any(!is.na(argv$usefg.buddy_eve)) & any(argv$usefg.buddy_eve==1)) {
+  if ( any(!is.na(argv$usefg.buddy_eve)) & 
+       any(argv$usefg.buddy_eve==1) & 
+       exists("rfg") ) {
     t0a<-Sys.time()
     dfg<-getValues(rfg)
     if (exists("rfgdem")) { dfgdem<-getValues(rfgdem) } else 
@@ -5470,7 +5472,9 @@ if (argv$buddy_eve) {
         obsToCheck_z<-as.numeric(z[ix])
         obsToCheck_prio<-as.numeric(prio[ix])
         obsToCheck_val<-data$value[ix]
-        if (argv$usefg.buddy_eve[j]==1 & !is.na(argv$usefg.buddy_eve[j])) {
+        if ( argv$usefg.buddy_eve[j]==1 & 
+             !is.na(argv$usefg.buddy_eve[j]) & 
+             exists("rfg") ) {
           dataToUse_i<-1:(obsToCheck_n+nfg_val)
           dataToUse_x<-c(obsToCheck_x,fg_x)
           dataToUse_y<-c(obsToCheck_y,fg_y)
@@ -5616,7 +5620,9 @@ fg_z<-integer(0)
 fg_val<-integer(0)
 fg_prio<-integer(0)
 nfg_val<-0
-if (any(!is.na(argv$usefg.buddy)) & any(argv$usefg.buddy==1)) {
+if ( any(!is.na(argv$usefg.buddy)) & 
+     any(argv$usefg.buddy==1) &
+     exists("rfg") ) {
   t0a<-Sys.time()
   dfg<-getValues(rfg)
   if (exists("rfgdem")) { dfgdem<-getValues(rfgdem) } else 
@@ -5691,7 +5697,9 @@ for (i in 1:argv$i.buddy) {
       obsToCheck_z<-as.numeric(z[ix])
       obsToCheck_prio<-as.numeric(prio[ix])
       obsToCheck_val<-data$value[ix]
-      if (argv$usefg.buddy[j]==1 & !is.na(argv$usefg.buddy[j])) {
+      if ( argv$usefg.buddy[j]==1 & 
+           !is.na(argv$usefg.buddy[j]) &
+           exists("rfg") ) {
         dataToUse_i<-1:(obsToCheck_n+nfg_val)
         dataToUse_x<-c(obsToCheck_x,fg_x)
         dataToUse_y<-c(obsToCheck_y,fg_y)
